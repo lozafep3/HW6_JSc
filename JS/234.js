@@ -1,12 +1,21 @@
 //#2===================================================
 
-    // function sum() {
-    //
-    //     // ?
-    //
-    // }
-    //
-    // console.log( sum(1)(2) ); // 3
+    function sum(x) {
+
+        var numX = x;
+
+        function inner(y) {
+
+            var numY = y;
+
+            return numX + numY;
+
+        }
+
+        return inner;
+    }
+
+    console.log( sum(1)(2) ); // 3
 
 //#3===================================================
 
