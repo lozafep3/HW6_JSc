@@ -4,9 +4,9 @@
 
         var numX = x;
 
-        function inner(y) {
+        function inner(x) {
 
-            var numY = y;
+            var numY = x;
 
             return numX + numY;
 
