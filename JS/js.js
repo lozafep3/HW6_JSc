@@ -32,8 +32,8 @@ function timer() {
 
     timeBlock.onclick = function () {
         formatLong = !formatLong;
-    };
+    }
 
-};
+}
 
 window.onload = timer();
