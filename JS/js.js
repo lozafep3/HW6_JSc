@@ -1,37 +1,39 @@
-var timeBlock = document.getElementById('time');
-var formatLong = true;
+function timer() {
 
-function showTime() {
+    var timeBlock = document.getElementById('time');
+    var formatLong = true;
 
-    (function(){
+    function showTime() {
 
-        var cDate = new Date();
-        var cHours = cDate.getHours();
-        var cMinutes = cDate.getMinutes();
-        var cSeconds = cDate.getSeconds();
-        var cTime;
+        (function () {
 
-        if (cDate.getHours() < 10) cHours = '0' + cDate.getHours();
-        if (cDate.getMinutes() < 10) cMinutes = '0' + cDate.getMinutes();
-        if (cDate.getSeconds() < 10) cSeconds = '0' + cDate.getSeconds();
+            var cDate = new Date(),
+                cHours = cDate.getHours(),
+                cMinutes = cDate.getMinutes(),
+                cSeconds = cDate.getSeconds(),
+                cTime;
 
-        switch (formatLong) {
-            case true: cTime = cHours + ':' + cMinutes + ':' + cSeconds; break;
-            case false: cTime = cHours + ':' + cMinutes; break;
-        }
+            if (cDate.getHours() < 10) { cHours = '0' + cDate.getHours(); }
+            if (cDate.getMinutes() < 10) { cMinutes = '0' + cDate.getMinutes(); }
+            if (cDate.getSeconds() < 10) { cSeconds = '0' + cDate.getSeconds(); }
 
-        timeBlock.innerHTML = cTime;
+            switch (formatLong) {
+                case true: cTime = cHours + ':' + cMinutes + ':' + cSeconds; break;
+                case false: cTime = cHours + ':' + cMinutes; break;
+            }
 
-        window.setTimeout(arguments.callee, 1000);
+            timeBlock.innerHTML = cTime;
 
-    })();
+        })();
 
-}
+    }
 
-showTime();
+    setInterval(function () { showTime() }, 1000);
 
-timeBlock.onclick = function() {
-
-    formatLong = !formatLong;
+    timeBlock.onclick = function () {
+        formatLong = !formatLong;
+    };
 
 };
+
+window.onload = timer();
